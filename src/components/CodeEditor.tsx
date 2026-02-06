@@ -40,7 +40,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ code, onRun }) => {
   };
 
   return (
-    <div className="w-[45%] flex flex-col bg-[#1e1e1e] border-r border-slate-700 h-full">
+    <div className="w-[50%] flex flex-col bg-[#1e1e1e] border-r border-slate-700 h-full">
       {/* Header */}
       <div className="h-[40px] bg-[#252526] flex items-center justify-between px-4 border-b border-[#333] shrink-0">
         <div className="flex items-center gap-2">

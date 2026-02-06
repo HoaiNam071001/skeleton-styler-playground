@@ -3,11 +3,12 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 
 import CodeEditor from "./components/CodeEditor";
 import PreviewPane from "./components/PreviewPane";
-import { getCodeTemplates } from "./constants/templates";
+import { TEMPLATE_GROUPS } from "./constants/templates";
 import { ElementBuilder, SkeletonAnimation, SkeletonTemplate, StyleBuilder } from "skeleton-styler";
+import { DocColumn } from "./components/DocColumn";
 
 // --- Types Definitions ---
-interface MethodInfo {
+export interface MethodInfo {
   name: string;
   args: string;
 }
@@ -180,6 +181,38 @@ const App: React.FC = () => {
     });
   };
 
+  const renderSidebar = () => (
+    <aside className="w-[220px] bg-white border-r border-slate-200 overflow-y-auto shrink-0 flex flex-col">
+      <div className="p-4 text-xs font-bold text-slate-900 uppercase tracking-wider border-b border-slate-100 bg-slate-50">
+        Templates Library
+      </div>
+      <div className="flex-1 pb-4">
+        {TEMPLATE_GROUPS.map((group, groupIdx) => (
+          <div key={groupIdx} className="mb-2">
+            {/* Tên nhóm */}
+            <div className="px-4 py-2 mt-2 text-[11px] font-bold text-slate-400 uppercase tracking-wide">
+              {group.group}
+            </div>
+            {/* Danh sách items trong nhóm */}
+            {group.items.map((item) => (
+              <button
+                key={item.name}
+                onClick={() => setCode(item.code)}
+                className={`w-full text-left px-4 py-2 text-sm transition-colors border-l-2 ${
+                  code === item.code
+                    ? "border-sky-500 bg-sky-50 text-sky-700 font-medium"
+                    : "border-transparent text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                }`}
+              >
+                {item.name}
+              </button>
+            ))}
+          </div>
+        ))}
+      </div>
+    </aside>
+  );
+
   return (
     <div className="flex flex-col h-screen overflow-hidden bg-slate-50 text-slate-700 font-sans">
       <header className="h-[60px] bg-white border-b border-slate-200 px-6 flex items-center justify-between shadow-sm z-10 shrink-0">
@@ -194,26 +227,7 @@ const App: React.FC = () => {
 
       <main className="flex flex-1 overflow-hidden">
         {/* --- LEFT SIDEBAR: TEMPLATES --- */}
-        <aside className="w-[220px] bg-white border-r border-slate-200 overflow-y-auto shrink-0 flex flex-col">
-          <div className="p-4 text-xs font-bold text-slate-400 uppercase tracking-wider border-b border-slate-100">
-            Templates
-          </div>
-          <div className="flex-1">
-            {getCodeTemplates().map((template) => (
-              <button
-                key={template.name}
-                onClick={() => setCode(template.code)}
-                className={`w-full text-left px-4 py-3 text-sm transition-colors border-b border-slate-50 hover:bg-slate-50 ${
-                  code === template.code
-                    ? "bg-sky-50 text-sky-700 font-semibold border-r-2 border-r-sky-500"
-                    : "text-slate-600"
-                }`}
-              >
-                {template.name}
-              </button>
-            ))}
-          </div>
-        </aside>
+        {renderSidebar()}
 
         {/* --- EDITOR & PREVIEW --- */}
         <div className="flex flex-1 overflow-hidden">
@@ -263,75 +277,5 @@ const App: React.FC = () => {
 };
 
 // --- Sub-component for Doc Column ---
-const DocColumn: React.FC<{
-  title: string;
-  methods: MethodInfo[];
-  prefix: string;
-  onCopy: (text: string) => void;
-}> = ({ title, methods, prefix, onCopy }) => {
-  // 1. State lưu từ khóa tìm kiếm
-  const [searchTerm, setSearchTerm] = useState("");
 
-  // 2. Logic lọc danh sách method (không phân biệt hoa thường)
-  const filteredMethods = methods.filter((m) =>
-    m.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  return (
-    <div className="flex-1 overflow-y-auto flex flex-col min-w-[250px]">
-      {/* Header Sticky chứa Title và Input Search */}
-      <div className="sticky top-0 bg-white/95 backdrop-blur px-4 py-3 border-b border-slate-100 z-10 shadow-sm">
-        <div className="text-xs font-bold text-slate-500 mb-2">{title}</div>
-
-        {/* Ô Search Input */}
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Filter..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full bg-slate-100 text-slate-600 text-xs border border-transparent focus:border-sky-400 focus:bg-white rounded px-2 py-1.5 outline-none transition-all placeholder:text-slate-400"
-          />
-          {/* Nút X để clear search (hiện khi có text) */}
-          {searchTerm && (
-            <button
-              onClick={() => setSearchTerm("")}
-              className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
-            >
-              ✕
-            </button>
-          )}
-        </div>
-      </div>
-
-      {/* Danh sách method sau khi lọc */}
-      <div className="py-2">
-        {filteredMethods.length > 0 ? (
-          filteredMethods.map((method) => (
-            <div
-              key={method.name}
-              onClick={() => onCopy(`${prefix}${method.name}${method.args}`)}
-              className="group font-mono px-4 py-1.5 cursor-pointer text-teal-600 hover:text-blue-600 hover:bg-sky-50 text-[13px] flex justify-between items-center transition-colors"
-            >
-              <span className="truncate">
-                {/* Highlight phần prefix cho dễ nhìn */}
-                <span className="text-slate-400">{prefix}</span>
-                {method.name}
-                <span className="text-slate-400 text-xs">{method.args}</span>
-              </span>
-              <span className="opacity-0 group-hover:opacity-100 text-xs text-slate-400 shrink-0 ml-2">
-                📋
-              </span>
-            </div>
-          ))
-        ) : (
-          // Hiển thị khi không tìm thấy kết quả
-          <div className="px-4 py-4 text-center text-xs text-slate-400 italic">
-            No methods found
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
 export default App;
