@@ -10,6 +10,85 @@ export interface TemplateGroup {
 }
 
 export const TEMPLATE_GROUPS: TemplateGroup[] = [
+  {
+    group: "Animations & Themes",
+    items: [
+      {
+        name: "Gallery: All Animations",
+        code: `SkeletonTemplate.Grid({ cols: 3, gap: 20 }).s_w(600).append(
+    // 1. Pulse (Default)
+    new ElementBuilder().s_flexColumn().s_gap(8).append(
+        new ElementBuilder().s_wFull().s_h(60).s_rounded(8).markAsSkeleton(SkeletonAnimation.Pulse),
+        new ElementBuilder().s_textSize(12).s_textColor("#666")
+    ),
+    // 2. Fade
+    new ElementBuilder().s_flexColumn().s_gap(8).append(
+        new ElementBuilder().s_wFull().s_h(60).s_rounded(8).markAsSkeleton(SkeletonAnimation.Fade),
+        new ElementBuilder().s_textSize(12).s_textColor("#666")
+    ),
+    // 3. Scale
+    new ElementBuilder().s_flexColumn().s_gap(8).append(
+        new ElementBuilder().s_wFull().s_h(60).s_rounded(8).markAsSkeleton(SkeletonAnimation.Scale),
+        new ElementBuilder().s_textSize(12).s_textColor("#666")
+    ),
+    // 4. Progress (Shimmer)
+    new ElementBuilder().s_flexColumn().s_gap(8).append(
+        new ElementBuilder().s_wFull().s_h(60).s_rounded(8).markAsSkeleton(SkeletonAnimation.Progress),
+        new ElementBuilder().s_textColor("#666")
+    ),
+    // 5. None (Static)
+    new ElementBuilder().s_flexColumn().s_gap(8).append(
+        new ElementBuilder().s_wFull().s_h(60).s_rounded(8).markAsSkeleton(SkeletonAnimation.None).s_bg("#e5e7eb"),
+        new ElementBuilder().s_textSize(12).s_textColor("#666")
+    )
+)`
+      },
+      {
+        name: "Override: Mixed Animations",
+        code: `new ElementBuilder().s_w(300).s_flexColumn().s_gap(16).append(
+    // 1. Image dùng hiệu ứng Scale (Zoom nhẹ)
+    new ElementBuilder().s_flexColumn().s_gap(8).append(
+        new ElementBuilder().s_wFull().s_h(150).s_rounded(8).markAsSkeleton(SkeletonAnimation.Scale),
+        new ElementBuilder().s_textSize(10).s_textColor("#888")
+    ),
+
+    // 2. Avatar dùng hiệu ứng Fade (Nhấp nháy chậm)
+    SkeletonTemplate.Flex({ gap: 12 }).s_itemsCenter().append(
+        SkeletonTemplate.Avatar({ size: 40 }).setAnimation(SkeletonAnimation.Fade),
+        new ElementBuilder().s_textSize(10).s_textColor("#888")
+    )
+)`
+      },
+      {
+        name: "Progress & Gradients",
+        code: `SkeletonTemplate.Flex({ direction: 'column', gap: 24 }).s_w(400).append(
+    // 1. Default Grayscale Progress
+    new ElementBuilder().s_flexColumn().s_gap(8).append(
+        new ElementBuilder().s_wFull().s_h(40).s_rounded(4).markAsSkeleton(SkeletonAnimation.Progress),
+        new ElementBuilder().s_textSize(12)
+    ),
+
+    // 2. Blue Gradient (Facebook style)
+    new ElementBuilder().s_flexColumn().s_gap(8).append(
+        new ElementBuilder()
+            .s_wFull().s_h(40).s_rounded(4)
+            .markAsSkeleton(SkeletonAnimation.Progress)
+            .setSkeletonColors(["#e0f2fe", "#7dd3fc"]), // Light Blue -> Blue
+        new ElementBuilder().s_textSize(12)
+    ),
+
+    // 3. Dark Mode Gradient
+    new ElementBuilder().s_flexColumn().s_gap(8).append(
+        new ElementBuilder()
+            .s_wFull().s_h(40).s_rounded(4)
+            .markAsSkeleton(SkeletonAnimation.Progress)
+            .setSkeletonColors(["#374151", "#4b5563"]), // Gray 700 -> Gray 600
+        new ElementBuilder().s_textSize(12)
+    )
+)`
+      }
+    ]
+  },
 {
     group: "Basic Components",
     items: [
