@@ -15,6 +15,7 @@ import {
 import { HeroDemo } from "./Home/HeroDemo";
 import { FrameworkTabs } from "./Home/FrameworkTabs";
 import { HtmlOutput } from "./Home/HtmlOutput";
+import { ComparisonTable } from "./Home/ComparisonSection";
 
 // Component UI nhỏ (Tĩnh thì cứ để trong Server Component)
 const SectionBadge = ({
@@ -108,6 +109,10 @@ export const HomeView = () => {
           {/* Component mới được thêm vào đây */}
           <HtmlOutput />
         </div>
+      </section>
+
+      <section className="py-24 bg-slate-50 border-t border-slate-200">
+         <ComparisonTable />
       </section>
 
       {/* --- FEATURES GRID (Hoàn toàn tĩnh -> Server Render) --- */}
