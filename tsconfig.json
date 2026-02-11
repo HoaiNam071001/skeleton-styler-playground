@@ -1,0 +1,53 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+    /* Linting - Tắt bớt strict để code Reflection dễ thở hơn */
+    "strict": true,
+    "noUnusedLocals": false, // Tắt báo lỗi biến khai báo nhưng ko dùng
+    "noUnusedParameters": false, // Tắt báo lỗi tham số ko dùng
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false, // QUAN TRỌNG: Tắt báo lỗi 'any' để xử lý dynamic object
+    /* Path Alias - Giúp TS tìm thấy source code thư viện */
+    "baseUrl": ".",
+    "paths": {
+      "skeleton-styler": [
+        "../lib/src/index.ts"
+      ]
+      // Trỏ thẳng vào source TS của thư viện để dev sướng hơn (hot reload)
+    },
+    "allowJs": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "src",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
