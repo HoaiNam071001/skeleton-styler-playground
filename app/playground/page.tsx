@@ -3,7 +3,6 @@
 
 import dynamic from "next/dynamic";
 
-// Import PlaygroundView và tắt SSR cho nó
 const PlaygroundView = dynamic(
   () => import("../../components/PlaygroundView").then((mod) => mod.PlaygroundView),
   { 
