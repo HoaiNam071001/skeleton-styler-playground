@@ -1,22 +1,36 @@
 // src/app/page.tsx
 import { Metadata } from "next";
-import { HomeView } from '../components/HomeView';
+import { HomeView } from "../components/HomeView";
 
 const APP_URL = "https://skeleton-styler.vercel.app"; // Thay bằng domain của bạn
 
 export const metadata: Metadata = {
   // Title tối ưu từ khóa (dưới 60 ký tự)
-  title: "SkeletonStyler | Fluent API for High-Performance UI Loading Skeletons",
-  
+  title:
+    "SkeletonStyler | Fluent API for High-Performance UI Loading Skeletons",
+
   // Description chứa nhiều cụm từ tìm kiếm (dưới 160 ký tự)
-  description: "Create beautiful, type-safe skeleton loading screens in seconds. A lightweight, framework-agnostic library for React, Angular, Vue, and Vanilla JS.",
-  
-  // Keywords (Dù Google ít dùng nhưng các công cụ khác vẫn quét)
+  description:
+    "Create professional skeleton screens & content placeholders with a fluent, type-safe API. Lightweight & framework-agnostic. Perfect for React, Next.js, Angular, Vue, and Vanilla JS.",
+
+  // Keywords: Bao phủ mọi ngóc ngách mà dev có thể tìm kiếm
   keywords: [
-    "skeleton loading", "skeleton screen", "placeholder animation", 
-    "UI loading states", "fluent api", "frontend development tool", 
-    "react skeleton loader", "angular loading placeholder", "vue skeleton components",
-    "web performance", "typescript library", "skeleton"
+    "skeleton loading",
+    "shimmer effect",
+    "UI loading states",
+    "skeleton screen",
+    "content placeholders",
+    "fluent API",
+    "ghost elements UI",
+    "react skeleton loader",
+    "nextjs loading skeleton",
+    "angular loading placeholder",
+    "vue skeleton component",
+    "typescript skeleton library",
+    "web performance",
+    "frontend skeleton tool",
+    "vanilla js skeleton",
+    "customizable loading skeletons",
   ],
 
   // Tác giả
@@ -29,7 +43,8 @@ export const metadata: Metadata = {
   // OpenGraph (Khi share link qua Facebook, Zalo, LinkedIn)
   openGraph: {
     title: "SkeletonStyler - The Fluent Way to Style Skeletons",
-    description: "Build complex loading states without writing messy CSS. Optimized for modern web frameworks.",
+    description:
+      "Build complex loading states without writing messy CSS. Optimized for modern web frameworks.",
     url: APP_URL,
     siteName: "SkeletonStyler Documentation",
     images: [
@@ -48,7 +63,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "SkeletonStyler | Fast & Fluent Skeleton Loader Library",
-    description: "Stop maintaining complex CSS for loading states. Use a type-safe API instead.",
+    description:
+      "Stop maintaining complex CSS for loading states. Use a type-safe API instead.",
     // images: [`${APP_URL}/og-image.png`],
   },
 
@@ -59,9 +75,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
 };
