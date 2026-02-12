@@ -2,6 +2,7 @@
 import { Metadata } from "next";
 import { Header } from "../components/Header";
 import "./globals.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: "SkeletonStyler",
@@ -18,8 +19,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         {/* Header sẽ tự nhận diện path để highlight nút tương ứng */}
-        <Header /> 
+        <Header />
         {children}
+        <GoogleAnalytics gaId="G-RCEC15NC73" />
       </body>
     </html>
   );

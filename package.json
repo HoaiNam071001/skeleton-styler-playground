@@ -9,12 +9,13 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
+    "@next/third-parties": "^16.1.6",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "lucide-react": "^0.563.0",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "@monaco-editor/react": "^4.7.0",
-    "@types/react-syntax-highlighter": "^15.5.13",
-    "lucide-react": "^0.563.0",
     "react-syntax-highlighter": "^16.1.0",
     "skeleton-styler": "^5.0.2"
   },
