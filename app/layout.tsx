@@ -1,8 +1,8 @@
 // src/app/layout.tsx
 import { Metadata } from "next";
-import { Header } from "../components/Header";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Header } from '../components/Header';
 
 export const metadata: Metadata = {
   title: "SkeletonStyler",
@@ -11,6 +11,21 @@ export const metadata: Metadata = {
   icons: {
     icon: "/logo.svg", // Next.js sẽ tự tìm trong thư mục public
     apple: "/logo.svg", // Dùng luôn cho icon trên iPhone/iPad nếu muốn
+  },
+  metadataBase: new URL("https://skeleton-styler.vercel.app"),
+  authors: [{ name: "Nguyen Hoai Nam" }],
+  publisher: "Nguyen Hoai Nam",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    siteName: "SkeletonStyler",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
   },
 }
 
