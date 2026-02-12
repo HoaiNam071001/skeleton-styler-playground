@@ -36,7 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Header sẽ tự nhận diện path để highlight nút tương ứng */}
         <Header />
         {children}
-        <GoogleAnalytics gaId="G-RCEC15NC73" />
+        <GoogleAnalytics gaId="G-TG04VT28HZ" />
       </body>
     </html>
   );
