@@ -28,6 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
   },
 }
+const GG_ANALYTICS_KEY = "G-TG04VT28HZ";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -36,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Header sẽ tự nhận diện path để highlight nút tương ứng */}
         <Header />
         {children}
-        <GoogleAnalytics gaId="G-TG04VT28HZ" />
+        <GoogleAnalytics gaId={GG_ANALYTICS_KEY}/>
       </body>
     </html>
   );
