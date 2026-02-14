@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
   },
 }
-const GG_ANALYTICS_KEY = "G-TG04VT28HZ";
+const GG_ANALYTICS_KEY = "G-RCEC15NC73";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
