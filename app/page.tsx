@@ -5,10 +5,10 @@ import { HomeView } from "../components/HomeView";
 const APP_URL = "https://skeleton-styler.vercel.app"; // Thay bằng domain của bạn
 
 export const metadata: Metadata = {
-  // Title tối ưu từ khóa (dưới 60 ký tự)
-  title:
-    "SkeletonStyler | Fluent API for High-Performance UI Loading Skeletons",
-
+  title: {
+    default: "SkeletonStyler | Fluent API for UI Loading",
+    template: "%s | SkeletonStyler", // Giúp các trang con tự động nối tên thương hiệu
+  },
   // Description chứa nhiều cụm từ tìm kiếm (dưới 160 ký tự)
   description:
     "Create professional skeleton screens & content placeholders with a fluent, type-safe API. Lightweight & framework-agnostic. Perfect for React, Next.js, Angular, Vue, and Vanilla JS.",

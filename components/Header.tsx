@@ -14,8 +14,19 @@ export const Header: React.FC = () => {
     return false;
   };
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Skeleton Styler", // Tên bạn muốn hiển thị thay cho "Vercel"
+    url: "https://skeleton-styler.vercel.app/",
+  };
+
   return (
     <header className="h-[64px] bg-white/80 backdrop-blur-md border-b border-slate-200 px-6 flex items-center justify-between sticky top-0 z-50 transition-all duration-300">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Logo - Bọc trong Link để về trang chủ */}
       <Link href="/" className="flex items-center gap-3 group">
         <div className="w-8 h-8 bg-sky-500 rounded-lg flex items-center justify-center text-white font-bold shadow-lg shadow-sky-500/30 group-hover:scale-105 transition-transform">

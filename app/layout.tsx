@@ -2,10 +2,13 @@
 import { Metadata } from "next";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { Header } from '../components/Header';
+import { Header } from "../components/Header";
 
 export const metadata: Metadata = {
-  title: "SkeletonStyler",
+  title: {
+    default: "SkeletonStyler | Fluent API for UI Loading",
+    template: "%s | SkeletonStyler", // Giúp các trang con tự động nối tên thương hiệu
+  },
   description: "Fluent API for Web Skeletons",
   // Thêm đoạn này vào
   icons: {
@@ -27,17 +30,22 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
   },
-}
+};
 const GG_ANALYTICS_KEY = "G-RCEC15NC73";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+
   return (
     <html lang="en">
       <body>
         {/* Header sẽ tự nhận diện path để highlight nút tương ứng */}
         <Header />
         {children}
-        <GoogleAnalytics gaId={GG_ANALYTICS_KEY}/>
+        <GoogleAnalytics gaId={GG_ANALYTICS_KEY} />
       </body>
     </html>
   );
