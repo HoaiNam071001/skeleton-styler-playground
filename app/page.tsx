@@ -15,6 +15,13 @@ export const metadata: Metadata = {
 
   // Keywords: Bao phủ mọi ngóc ngách mà dev có thể tìm kiếm
   keywords: [
+    "skeleton library",
+    "skeleton for web",
+    "react loading skeleton",
+    "spinner",
+    "react",
+    "angular",
+    "vue",
     "skeleton loading",
     "shimmer effect",
     "UI loading states",
