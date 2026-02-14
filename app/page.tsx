@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   },
   // Description chứa nhiều cụm từ tìm kiếm (dưới 160 ký tự)
   description:
-    "Create professional skeleton screens & content placeholders with a fluent, type-safe API. Lightweight & framework-agnostic. Perfect for React, Next.js, Angular, Vue, and Vanilla JS.",
+    "Create professional skeleton screens & content placeholders with a fluent, type-safe API. Lightweight & framework-agnostic. Perfect for React, Next.js, Angular, Vue, and Vanilla JS. Make beautiful, animated loading skeletons that automatically adapt to your app.",
 
   // Keywords: Bao phủ mọi ngóc ngách mà dev có thể tìm kiếm
   keywords: [

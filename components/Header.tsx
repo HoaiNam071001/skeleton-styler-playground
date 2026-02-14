@@ -33,12 +33,12 @@ export const Header: React.FC = () => {
           S
         </div>
         <div className="flex flex-col">
-          <span className="text-lg font-bold text-slate-900 leading-tight group-hover:text-sky-600 transition-colors">
+          <h1 className="text-lg font-bold text-slate-900 leading-tight group-hover:text-sky-600 transition-colors">
             SkeletonStyler
-          </span>
-          <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest">
+          </h1>
+          <h2 className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest">
             Library
-          </span>
+          </h2>
         </div>
       </Link>
 

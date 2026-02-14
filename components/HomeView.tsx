@@ -47,11 +47,11 @@ export const HomeView = () => {
           </span>
         </h1>
 
-        <p className="max-w-2xl text-lg text-slate-600 mb-10 leading-relaxed text-center">
+        <h2 className="max-w-2xl text-lg text-slate-600 mb-10 leading-relaxed text-center">
           <strong>skeleton-styler</strong> creates high-performance loading
           states using a type-safe Fluent API. Forget maintaining complex CSS
           files.
-        </p>
+        </h2>
 
         <div className="flex gap-4 mb-20 justify-center">
           {/* Dùng Link thay vì router.push để tối ưu SSR prefetching */}
