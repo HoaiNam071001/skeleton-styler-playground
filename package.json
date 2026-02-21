@@ -17,7 +17,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-syntax-highlighter": "^16.1.0",
-    "skeleton-styler": "^5.0.2"
+    "skeleton-styler": "^5.0.7"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
