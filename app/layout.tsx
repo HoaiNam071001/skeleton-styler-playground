@@ -23,7 +23,18 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
+    title: "SkeletonStyler | Fluent API for UI Loading",
+    description: "Fluent API for Web Skeletons",
+    url: "https://skeleton-styler.vercel.app",
     siteName: "SkeletonStyler",
+    images: [
+      {
+        url: "/preview.png",
+        width: 1200,
+        height: 630,
+        alt: "SkeletonStyler Preview",
+      },
+    ],
     type: "website",
     locale: "en_US",
   },
@@ -38,7 +49,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
   return (
     <html lang="en">
       <body>
