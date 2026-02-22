@@ -55,12 +55,12 @@ export const metadata: Metadata = {
     url: APP_URL,
     siteName: "SkeletonStyler Documentation",
     images: [
-      // {
-      //   url: `${APP_URL}/og-image.png`, // Bạn nên tạo 1 ảnh og-image 1200x630
-      //   width: 1200,
-      //   height: 630,
-      //   alt: "SkeletonStyler Preview",
-      // },
+      {
+        url: "https://skeleton-styler.vercel.app/preview.png",
+        width: 1200,
+        height: 630,
+        alt: "SkeletonStyler Preview",
+      },
     ],
     locale: "en_US",
     type: "website",
