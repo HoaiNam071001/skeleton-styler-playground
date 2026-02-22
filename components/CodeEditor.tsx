@@ -42,11 +42,11 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ code, onRun }) => {
   };
 
   return (
-    <div className="w-[50%] flex flex-col bg-[#1e1e1e] border-r border-slate-700 h-full">
+    <div className="md:max-w-[50%] flex-1 min-h-0 flex flex-col bg-[#1e1e1e] border-b lg:border-b-0 lg:border-r border-slate-700">
       {/* Header */}
-      <div className="h-[40px] bg-[#252526] flex items-center justify-between px-4 border-b border-[#333] shrink-0">
+      <div className="h-[40px] bg-[#252526] flex items-center justify-between px-3 md:px-4 border-b border-[#333] shrink-0">
         <div className="flex items-center gap-2">
-          <span className="text-gray-400 text-xs font-medium uppercase tracking-wider">
+          <span className="text-gray-400 text-[10px] md:text-xs font-medium uppercase tracking-wider">
             TS / JS Editor
           </span>
         </div>
@@ -55,7 +55,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ code, onRun }) => {
            {/* Copy Button */}
            <button
             onClick={handleCopy}
-            className={`px-3 py-1 rounded text-xs font-medium transition-all
+            className={`px-2 md:px-3 py-1 rounded text-[10px] md:text-xs font-medium transition-all
               ${copied ? "text-emerald-400" : "text-gray-400 hover:text-white"}`}
             title="Copy code"
           >
@@ -65,7 +65,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ code, onRun }) => {
           {/* Run Button */}
           <button
             onClick={handleRunClick}
-            className="bg-emerald-600 hover:bg-emerald-500 text-white border-none px-3 py-1 rounded text-xs font-bold flex items-center gap-1.5 transition-all shadow-sm"
+            className="bg-emerald-600 hover:bg-emerald-500 text-white border-none px-2 md:px-3 py-1 rounded text-[10px] md:text-xs font-bold flex items-center gap-1.5 transition-all shadow-sm"
           >
             <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
               <path d="M8 5v14l11-7z" />

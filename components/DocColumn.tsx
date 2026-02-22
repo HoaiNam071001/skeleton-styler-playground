@@ -18,7 +18,7 @@ export const DocColumn: React.FC<{
   );
 
   return (
-    <div className="flex-1 overflow-y-auto flex flex-col min-w-[250px]">
+    <div className="flex-1 overflow-y-auto flex flex-col shrink-0 min-w-[80vw] sm:min-w-[300px] md:min-w-[250px]">
       {/* Header Sticky chứa Title và Input Search */}
       <div className="sticky top-0 bg-white/95 backdrop-blur px-4 py-3 border-b border-slate-100 z-10 shadow-sm">
         <div className="text-xs font-bold text-slate-500 mb-2">{title}</div>
@@ -51,7 +51,7 @@ export const DocColumn: React.FC<{
             <div
               key={method.name}
               onClick={() => onCopy(`${prefix}${method.name}${method.args}`)}
-              className="group font-mono px-4 py-1.5 cursor-pointer text-teal-600 hover:text-blue-600 hover:bg-sky-50 text-[13px] flex justify-between items-center transition-colors"
+              className="group font-mono px-4 py-2 md:py-1.5 cursor-pointer text-teal-600 hover:text-blue-600 hover:bg-sky-50 text-[13px] flex justify-between items-center transition-colors"
             >
               <span className="truncate">
                 {/* Highlight phần prefix cho dễ nhìn */}
