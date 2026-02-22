@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "SkeletonStyler",
     images: [
       {
-        url: "/preview.png",
+        url: "https://skeleton-styler.vercel.app/preview.png",
         width: 1200,
         height: 630,
         alt: "SkeletonStyler Preview",
