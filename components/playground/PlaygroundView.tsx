@@ -2,11 +2,12 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ElementBuilder, SkeletonAnimation, SkeletonTemplate, StyleBuilder } from "skeleton-styler";
-import { DocColumn } from "./DocColumn";
-import CodeEditor from "./CodeEditor";
-import PreviewPane from "./PreviewPane";
-import { TEMPLATE_GROUPS } from '../constants/templates';
-import { DocCategories, MethodInfo, ToastState } from "../types";
+import { DocCategories, MethodInfo, ToastState } from '../../types/index';
+import { DocColumn } from './DocColumn';
+import CodeEditor from './CodeEditor';
+import PreviewPane from './PreviewPane';
+import { TEMPLATE_GROUPS } from '../../constants/templates';
+import { DEFAULT_GLOBAL_CODE } from '../../constants/preview';
 
 const DEFAULT_CODE = `new ElementBuilder()
   .s_flex()
@@ -22,6 +23,7 @@ const DEFAULT_CODE = `new ElementBuilder()
 export const PlaygroundView: React.FC = () => {
   // --- State ---
   const [code, setCode] = useState<string>(DEFAULT_CODE);
+  const [globalCode, setGlobalCode] = useState<string>(DEFAULT_GLOBAL_CODE);
   const [error, setError] = useState<string | null>(null);
   const [toast, setToast] = useState<ToastState>({ msg: "", show: false });
   const [docs, setDocs] = useState<DocCategories>({
@@ -39,12 +41,15 @@ export const PlaygroundView: React.FC = () => {
     if (!code.trim()) return;
 
     try {
+      // Đẩy globalCode vào trước hàm closure thực thi code chính
       const executeUserCode = new Function(
         "ElementBuilder",
         "SkeletonAnimation",
         "StyleBuilder",
         "SkeletonTemplate",
-        `return (function() {
+        `${globalCode}
+
+        return (function() {
           ${code.trim().startsWith(".") ? "return new ElementBuilder().markAsSkeleton()" + code : "return " + code}
         })()`,
       );
@@ -65,7 +70,7 @@ export const PlaygroundView: React.FC = () => {
       console.error(err);
       setError(`Runtime Error: ${err.message}`);
     }
-  }, [code]);
+  }, [code, globalCode]);
 
   // --- Logic: Generate Docs (Reflection) ---
   useEffect(() => {
@@ -198,7 +203,14 @@ export const PlaygroundView: React.FC = () => {
 
         {/* --- EDITOR & PREVIEW --- */}
         <div className="flex flex-col lg:flex-row flex-1 overflow-hidden relative">
-          <CodeEditor code={code} onRun={setCode} />
+          <CodeEditor
+            code={code}
+            globalCode={globalCode}
+            onRun={(newCode, newGlobal) => {
+              setCode(newCode);
+              setGlobalCode(newGlobal);
+            }}
+          />
           <PreviewPane previewRef={previewContainerRef} error={error} />
         </div>
       </main>

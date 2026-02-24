@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import { MethodInfo } from '../types/index';
+import { MethodInfo } from '../../types/index';
 
 export const DocColumn: React.FC<{
   title: string;

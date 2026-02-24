@@ -10,7 +10,6 @@ const PreviewPane: React.FC<PreviewPaneProps> = ({ previewRef, error }) => {
     <div className="flex-1 min-h-0 flex flex-col bg-white relative">
       <div className="px-3 md:px-4 py-2 bg-slate-50 border-b border-slate-200 font-semibold text-[10px] md:text-xs uppercase text-slate-500 flex justify-between shrink-0">
         Preview
-        <span className="font-normal text-[9px] md:text-[10px]">Viewport: Responsive</span>
       </div>
 
       <div
