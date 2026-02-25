@@ -72,7 +72,7 @@ export const HeroDemo = () => {
              </div>
              <div className="w-10"></div>
            </div>
-           <div className="flex-1 overflow-auto custom-scrollbar">
+           <div className="flex-1 overflow-auto dark-scrollbar">
              <SyntaxHighlighter
                language="typescript"
                style={vscDarkPlus}
