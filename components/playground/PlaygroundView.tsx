@@ -31,6 +31,7 @@ export const PlaygroundView: React.FC = () => {
     builder: [],
     staticMethods: [],
   });
+  const [runTrigger, setRunTrigger] = useState<number>(0);
 
   const previewContainerRef = useRef<HTMLDivElement>(null);
 
@@ -156,7 +157,7 @@ export const PlaygroundView: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => runCode(), 0);
     return () => clearTimeout(timer);
-  }, [runCode]);
+  }, [runCode, runTrigger]);
 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text).then(() => {
@@ -209,6 +210,7 @@ export const PlaygroundView: React.FC = () => {
             onRun={(newCode, newGlobal) => {
               setCode(newCode);
               setGlobalCode(newGlobal);
+              setRunTrigger(prev => prev + 1);
             }}
           />
           <PreviewPane previewRef={previewContainerRef} error={error} />
